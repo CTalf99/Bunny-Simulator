@@ -1,0 +1,22 @@
+[
+{
+  "directory": "C:/msys64/home/local_admin/bunnies/build",
+  "command": "/C/msys64/mingw64/bin/g++.exe  -I/C/msys64/home/local_admin/bunnies/include -g -std=gnu++20 -o CMakeFiles/Bunnies.dir/src/main.cpp.obj -c /C/msys64/home/local_admin/bunnies/src/main.cpp",
+  "file": "C:/msys64/home/local_admin/bunnies/src/main.cpp"
+},
+{
+  "directory": "C:/msys64/home/local_admin/bunnies/build",
+  "command": "/C/msys64/mingw64/bin/g++.exe  -I/C/msys64/home/local_admin/bunnies/include -g -std=gnu++20 -o CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.obj -c /C/msys64/home/local_admin/bunnies/src/BunnyManager.cpp",
+  "file": "C:/msys64/home/local_admin/bunnies/src/BunnyManager.cpp"
+},
+{
+  "directory": "C:/msys64/home/local_admin/bunnies/build",
+  "command": "/C/msys64/mingw64/bin/g++.exe  -I/C/msys64/home/local_admin/bunnies/include -g -std=gnu++20 -o CMakeFiles/Bunnies.dir/src/Bunny.cpp.obj -c /C/msys64/home/local_admin/bunnies/src/Bunny.cpp",
+  "file": "C:/msys64/home/local_admin/bunnies/src/Bunny.cpp"
+},
+{
+  "directory": "C:/msys64/home/local_admin/bunnies/build",
+  "command": "/C/msys64/mingw64/bin/g++.exe  -I/C/msys64/home/local_admin/bunnies/include -g -std=gnu++20 -o CMakeFiles/Bunnies.dir/src/Util.cpp.obj -c /C/msys64/home/local_admin/bunnies/src/Util.cpp",
+  "file": "C:/msys64/home/local_admin/bunnies/src/Util.cpp"
+}
+]
