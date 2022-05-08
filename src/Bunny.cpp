@@ -175,7 +175,7 @@ Bunny::Bunny(const std::string &col)
         break;
     }
 
-    age = 0;
+    age = -1;
     colour = col;
     is_adult = false;
 }

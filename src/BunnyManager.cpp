@@ -36,6 +36,14 @@ std::list<std::shared_ptr<Bunny>> BunnyManager::get_list()
 void BunnyManager::display_screen()
 {
     system("clear");
+    std::cout << "Bunnies born from the previouse round: " << std::string(2, '\n');
+    breed();
+    seperator();
+    std::cout << "Bunnies who sadly passed away from the last round: " << std::string(2, '\n');
+    advance_time();
+    seperator();
+    sort_bunnies();
+    std::cout << "Updated bunny list: " << std::string(3, '\n');
     bunny_attribute_header();
 
     for (auto& it: bunny_list)
@@ -43,6 +51,21 @@ void BunnyManager::display_screen()
         it->display_bunny_values();
     }
     std::cout << std::endl;
+    sleep(1);
+}
+
+void BunnyManager::display_start_screen(const std::string &opening)
+{
+    std::cout << opening << std::endl << std::endl;
+    bunny_attribute_header();
+    std::cout << std::endl;
+
+    for (auto& it: bunny_list)
+    {
+        it->display_bunny_values();
+    }
+    std::cout << std::endl;
+    sleep(4);
 }
 
 void BunnyManager::advance_time()
@@ -54,9 +77,16 @@ void BunnyManager::advance_time()
     {
         while(itr != bunny_list.end())
         {
-            if ((*itr)->get_age() > 10)
+            if ((*itr)->get_age() > 10 && (*itr)->is_radioactive() == false)
             {
                 std::cout << "Bunny " << (*itr) -> get_name() << " has died :(" << std::endl;
+                sleep(1);
+                itr = bunny_list.erase(itr);
+            }
+            else if ((*itr)->get_age() > 50 && (*itr)->is_radioactive() == true)
+            {
+                std::cout << "Radioactive Bunny " << (*itr) -> get_name() << " has died :(" << std::endl;
+                sleep(1);
                 itr = bunny_list.erase(itr);
             }
             else ++itr;
@@ -90,16 +120,20 @@ void BunnyManager::breed()
 {
     if (check_reproductive_male())
     {
-        for (auto& it: bunny_list)
+        std::list<std::shared_ptr<Bunny>>::const_iterator itr = bunny_list.begin();
+        while(itr != bunny_list.end())
         {
-            if (it->get_sex() == 'F' && !(it->is_radioactive()));
+            if (((*itr)->get_sex() == 'F') && !((*itr)->is_radioactive()))
             {
-                std::shared_ptr<Bunny> bunnyChild = std::make_shared<Bunny>(it->get_colour());
+                std::shared_ptr<Bunny> bunnyChild = std::make_shared<Bunny>((*itr)->get_colour());
                 bunny_list.push_front(bunnyChild);
-                std::cout << bunnyChild->get_name() << " was born!" << std::endl;
+                std::cout << bunnyChild->get_name() << " was born! from "  << (*itr)->get_name() << std::endl;
+                sleep(1);
             }
+            ++itr;
         }
     }
+    sleep(1);
 }
 
 void BunnyManager::sort_bunnies()
@@ -109,28 +143,28 @@ void BunnyManager::sort_bunnies()
 
 void BunnyManager::food_shortage()
 {
-    if(bunny_list.size() > 20)
+    if(bunny_list.size() > 200)
     {
+        seperator();
         std::cout << "Bunny famine!" << std::endl;
         system("pause");
         system("clear");
         int a = bunny_list.size()/2;
-        while (bunny_list.size() > a/2)
+        
+        std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
+
+        while(itr != bunny_list.end())
         {
-            std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
+            std::random_device dev1;
+            std::mt19937 sexDev(dev1());
+            std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
 
-            while(itr != bunny_list.end())
-            {
-                std::random_device dev1;
-                std::mt19937 sexDev(dev1());
-                std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
+            if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
+            else ++itr;
 
-                if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
-                else ++itr;
-
-                if(bunny_list.size() == 6) break;
-            }
+            if(bunny_list.size() == a) break;
         }
+        
     }
 }
 
@@ -142,4 +176,11 @@ void BunnyManager::advance_all_age()
         i->check_adult();
     }
 
+}
+
+void BunnyManager::seperator()
+{
+    std::cout << std::endl;
+    std::cout << std::string(60, '-');
+    std::cout << std::endl;
 }

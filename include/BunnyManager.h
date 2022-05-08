@@ -15,6 +15,7 @@ public:
     void bunny_attribute_header();
     std::list<std::shared_ptr<Bunny>> get_list();  
     void display_screen();
+    void display_start_screen(const std::string &opening);
     void advance_time();
     bool end_condition();
     void sort_bunnies();
@@ -24,4 +25,5 @@ public:
     void food_shortage();
     void remove_bunny(const std::shared_ptr<Bunny> b);
     void advance_all_age();
+    void seperator();
 };

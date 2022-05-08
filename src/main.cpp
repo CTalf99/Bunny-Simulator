@@ -8,20 +8,14 @@
 
 int main ()
 {
+    system("clear");
     BunnyManager bunnies;
     bunnies.sort_bunnies();
-    bunnies.display_screen();
+    bunnies.display_start_screen("Bunny simulation has begun");
     do
     {
-        /*bunnies.sort_bunnies();
-        bunnies.display_screen();*/
-        bunnies.breed();
         bunnies.food_shortage();
-        bunnies.advance_time();
-        bunnies.sort_bunnies();
         bunnies.display_screen();
-        //system("pause");
-        sleep(2);
 
     } while(bunnies.end_condition());
 
