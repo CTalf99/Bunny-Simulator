@@ -8,6 +8,7 @@
 
 int main ()
 {
+    // CIN-THREAD
     system("clear");
     BunnyManager bunnies;
     bunnies.sort_bunnies();
