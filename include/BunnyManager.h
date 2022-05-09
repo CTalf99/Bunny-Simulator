@@ -8,9 +8,9 @@ class BunnyManager
 private:
 
     std::list<std::shared_ptr<Bunny>> bunny_list;
-    
+
 public:
-    std::list<std::shared_ptr<Bunny>> bunny_list;
+    //std::list<std::shared_ptr<Bunny>> bunny_list;
 
     BunnyManager();
     void bunny_attribute_header();

@@ -81,12 +81,12 @@ clean: CMakeFiles/Bunnies.dir/clean
 CMakeFiles/Bunnies.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/C/msys64/home/local_admin/bunnies/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target Bunnies"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/C/msys64/home/local_admin/bunnies/build/CMakeFiles --progress-num=1,2,3,4 "Built target Bunnies"
 .PHONY : CMakeFiles/Bunnies.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Bunnies.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /C/msys64/home/local_admin/bunnies/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /C/msys64/home/local_admin/bunnies/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Bunnies.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /C/msys64/home/local_admin/bunnies/build/CMakeFiles 0
 .PHONY : CMakeFiles/Bunnies.dir/rule

@@ -6,8 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Bunnies.dir/src/Bunny.cpp.obj.d"
   "CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.obj"
   "CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.obj.d"
-  "CMakeFiles/Bunnies.dir/src/Util.cpp.obj"
-  "CMakeFiles/Bunnies.dir/src/Util.cpp.obj.d"
   "CMakeFiles/Bunnies.dir/src/main.cpp.obj"
   "CMakeFiles/Bunnies.dir/src/main.cpp.obj.d"
   "libBunnies.dll.a"

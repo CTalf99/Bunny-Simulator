@@ -177,30 +177,6 @@ src/BunnyManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.s
 .PHONY : src/BunnyManager.cpp.s
 
-src/Util.obj: src/Util.cpp.obj
-.PHONY : src/Util.obj
-
-# target to build an object file
-src/Util.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/src/Util.cpp.obj
-.PHONY : src/Util.cpp.obj
-
-src/Util.i: src/Util.cpp.i
-.PHONY : src/Util.i
-
-# target to preprocess a source file
-src/Util.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/src/Util.cpp.i
-.PHONY : src/Util.cpp.i
-
-src/Util.s: src/Util.cpp.s
-.PHONY : src/Util.s
-
-# target to generate assembly for a file
-src/Util.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Bunnies.dir/build.make CMakeFiles/Bunnies.dir/src/Util.cpp.s
-.PHONY : src/Util.cpp.s
-
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -240,9 +216,6 @@ help:
 	@echo "... src/BunnyManager.obj"
 	@echo "... src/BunnyManager.i"
 	@echo "... src/BunnyManager.s"
-	@echo "... src/Util.obj"
-	@echo "... src/Util.i"
-	@echo "... src/Util.s"
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

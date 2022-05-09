@@ -111,26 +111,11 @@ CMakeFiles/Bunnies.dir/src/Bunny.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Bunnies.dir/src/Bunny.cpp.s"
 	/C/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/msys64/home/local_admin/bunnies/src/Bunny.cpp -o CMakeFiles/Bunnies.dir/src/Bunny.cpp.s
 
-CMakeFiles/Bunnies.dir/src/Util.cpp.obj: CMakeFiles/Bunnies.dir/flags.make
-CMakeFiles/Bunnies.dir/src/Util.cpp.obj: ../src/Util.cpp
-CMakeFiles/Bunnies.dir/src/Util.cpp.obj: CMakeFiles/Bunnies.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/C/msys64/home/local_admin/bunnies/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Bunnies.dir/src/Util.cpp.obj"
-	/C/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Bunnies.dir/src/Util.cpp.obj -MF CMakeFiles/Bunnies.dir/src/Util.cpp.obj.d -o CMakeFiles/Bunnies.dir/src/Util.cpp.obj -c /C/msys64/home/local_admin/bunnies/src/Util.cpp
-
-CMakeFiles/Bunnies.dir/src/Util.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Bunnies.dir/src/Util.cpp.i"
-	/C/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/msys64/home/local_admin/bunnies/src/Util.cpp > CMakeFiles/Bunnies.dir/src/Util.cpp.i
-
-CMakeFiles/Bunnies.dir/src/Util.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Bunnies.dir/src/Util.cpp.s"
-	/C/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/msys64/home/local_admin/bunnies/src/Util.cpp -o CMakeFiles/Bunnies.dir/src/Util.cpp.s
-
 # Object files for target Bunnies
 Bunnies_OBJECTS = \
 "CMakeFiles/Bunnies.dir/src/main.cpp.obj" \
 "CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.obj" \
-"CMakeFiles/Bunnies.dir/src/Bunny.cpp.obj" \
-"CMakeFiles/Bunnies.dir/src/Util.cpp.obj"
+"CMakeFiles/Bunnies.dir/src/Bunny.cpp.obj"
 
 # External object files for target Bunnies
 Bunnies_EXTERNAL_OBJECTS =
@@ -138,9 +123,8 @@ Bunnies_EXTERNAL_OBJECTS =
 Bunnies.exe: CMakeFiles/Bunnies.dir/src/main.cpp.obj
 Bunnies.exe: CMakeFiles/Bunnies.dir/src/BunnyManager.cpp.obj
 Bunnies.exe: CMakeFiles/Bunnies.dir/src/Bunny.cpp.obj
-Bunnies.exe: CMakeFiles/Bunnies.dir/src/Util.cpp.obj
 Bunnies.exe: CMakeFiles/Bunnies.dir/build.make
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/C/msys64/home/local_admin/bunnies/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Bunnies.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/C/msys64/home/local_admin/bunnies/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Bunnies.exe"
 	/C/msys64/mingw64/bin/cmake.exe -E rm -f CMakeFiles/Bunnies.dir/objects.a
 	/C/msys64/mingw64/bin/ar.exe qc CMakeFiles/Bunnies.dir/objects.a $(Bunnies_OBJECTS) $(Bunnies_EXTERNAL_OBJECTS)
 	/C/msys64/mingw64/bin/g++.exe -g -Wl,--whole-archive CMakeFiles/Bunnies.dir/objects.a -Wl,--no-whole-archive -o Bunnies.exe -Wl,--out-implib,libBunnies.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
