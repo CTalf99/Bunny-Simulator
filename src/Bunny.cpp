@@ -51,7 +51,7 @@ Bunny::Bunny()
     std::mt19937 infectedDev(dev4());
     std::uniform_int_distribution<std::mt19937::result_type> distInfected(1, 100);
 
-    if (distInfected(infectedDev) <= 25) infected_bunny = true;
+    if (distInfected(infectedDev) <= 2) infected_bunny = true;
     else infected_bunny = false;
 
     //random choose name

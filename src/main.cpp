@@ -5,11 +5,14 @@
 #include <iostream>
 #include <memory>
 #include <list>
+#include <thread>
+
+BunnyManager bunnies;
 
 int main ()
 {
     system("clear");
-    BunnyManager bunnies;
+
     bunnies.sort_bunnies();
     bunnies.display_start_screen("Bunny simulation has begun");
     do

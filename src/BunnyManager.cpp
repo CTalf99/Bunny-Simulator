@@ -51,7 +51,7 @@ void BunnyManager::display_screen()
         it->display_bunny_values();
     }
     std::cout << std::endl;
-    sleep(1);
+    sleep(2);
 }
 
 void BunnyManager::display_start_screen(const std::string &opening)
@@ -143,15 +143,16 @@ void BunnyManager::sort_bunnies()
 
 void BunnyManager::food_shortage()
 {
-    if(bunny_list.size() > 200)
+    if(bunny_list.size() > 1000)
     {
         seperator();
         std::cout << "Bunny famine!" << std::endl;
-        system("pause");
+        sleep(3);
         system("clear");
         int a = bunny_list.size()/2;
         
         std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
+        std::vector<std::string> deceased_names;
 
         while(itr != bunny_list.end())
         {
@@ -159,12 +160,23 @@ void BunnyManager::food_shortage()
             std::mt19937 sexDev(dev1());
             std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
 
-            if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
+            if (distSex(sexDev) == 1) 
+            {
+                deceased_names.push_back((*itr)->get_name());
+                itr = bunny_list.erase(itr);
+            }
             else ++itr;
 
             if(bunny_list.size() == a) break;
         }
         
+        std::cout << "Bunnies that died during food shortage: " << std::endl;
+        for (int i = 0; i < deceased_names.size(); i++)
+        {
+            std::cout << deceased_names[i] << std::endl;
+        }
+        sleep(3);
+        deceased_names.clear();
     }
 }
 
@@ -183,4 +195,37 @@ void BunnyManager::seperator()
     std::cout << std::endl;
     std::cout << std::string(60, '-');
     std::cout << std::endl;
+}
+
+void BunnyManager::kill_half(char k)
+{
+    while ((k != 'k' && k != 'K'))
+    {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input; please re-enter.\n";
+    }
+
+    seperator();
+    std::cout << "Half of bunnies removed from list!" << std::endl;
+    system("pause");
+    system("clear");
+    int a = bunny_list.size()/2;
+    
+    std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
+
+    while(itr != bunny_list.end())
+    {
+
+
+        std::random_device dev1;
+        std::mt19937 sexDev(dev1());
+        std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
+
+        if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
+        else ++itr;
+
+        if(bunny_list.size() == a) break;
+    }
+        
 }
