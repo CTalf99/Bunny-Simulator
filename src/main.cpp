@@ -1,6 +1,5 @@
 #include "../include/Bunny.h"
 #include "../include/BunnyManager.h"
-#include "../include/Util.h"
 #include <unistd.h>
 #include <iostream>
 #include <memory>
