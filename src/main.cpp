@@ -13,8 +13,12 @@ BunnyManager bunnies;
 
 void run()
 {
-    bunnies.food_shortage();
-    bunnies.display_screen();
+    do
+    {
+        bunnies.food_shortage();
+        bunnies.display_screen();
+
+    } while (bunnies.end_condition());
 }
 
 
@@ -29,8 +33,14 @@ int main ()
 
     char test;
     std::cin >> test;
-    std::cout << test << std::endl;
-
+    while (bunnies.end_condition())
+    {
+    if (test == 'k' || test == 'K')
+    {
+        bunnies.remove_half();
+        std::cin.clear();
+    }
+    }
     prg.join();
 
     } while (bunnies.end_condition());

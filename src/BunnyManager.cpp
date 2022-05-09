@@ -51,7 +51,7 @@ void BunnyManager::display_screen()
         it->display_bunny_values();
     }
     std::cout << std::endl;
-    sleep(1);
+    sleep(2);
 }
 
 void BunnyManager::display_start_screen(const std::string &opening)
@@ -183,4 +183,28 @@ void BunnyManager::seperator()
     std::cout << std::endl;
     std::cout << std::string(60, '-');
     std::cout << std::endl;
+}
+
+void BunnyManager::remove_half()
+{
+    seperator();
+    std::cout << "Half of bunnies removed" << std::endl;
+    sleep(3);
+    system("clear");
+    int a = bunny_list.size()/2;
+    
+    std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
+
+    while(itr != bunny_list.end())
+    {
+        std::random_device dev1;
+        std::mt19937 sexDev(dev1());
+        std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
+
+        if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
+        else ++itr;
+
+        if(bunny_list.size() == a) break;
+    }
+        
 }

@@ -26,4 +26,5 @@ public:
     void remove_bunny(const std::shared_ptr<Bunny> b);
     void advance_all_age();
     void seperator();
+    void remove_half();
 };
