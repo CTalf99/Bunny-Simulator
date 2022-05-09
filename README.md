@@ -1,4 +1,4 @@
-A program to simulate the population of a wild rabbit colony. Bunnies breed and die depending on their age, sex and infected status. The attributes of the bunnies are determined randomely when the bunny is born. The program ends when there are no bunnies remaining.
+A program to simulate the population of a wild rabbit colony. Bunnies breed and die depending on their age, sex and infected status. The attributes of the bunnies are determined randomly when the bunny is born. The program ends when there are no bunnies remaining.
 
 Objectives met:
 The program meets the minumum requirements specified in the project outline.
