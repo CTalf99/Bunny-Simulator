@@ -12,20 +12,18 @@ private:
 public:
 
     BunnyManager();
+    void run();                                            //function which is called in main, constant loop until end condition is reached.
     void bunny_attribute_header();
-    std::list<std::shared_ptr<Bunny>> get_list(); 
-    void display_screen();                                  //display_screen uses other functions defined here to condense the code in main.cpp 
-    void display_start_screen(const std::string &opening);
+    void display_bunny_list();
     void advance_time();
     bool end_condition();
     void sort_bunnies();
     bool check_reproductive_male();
     void breed();
-    static bool compare_function(const std::shared_ptr<Bunny> &b1, const std::shared_ptr<Bunny> &b2);
+    static bool compare_function(const std::shared_ptr<Bunny> &b1, const std::shared_ptr<Bunny> &b2);       //for sorting list by object age;
     void food_shortage();
     void remove_bunny(const std::shared_ptr<Bunny> b);
     void advance_all_age();
-    void seperator();                                       //formatting function
-    void remove_half();
+    void seperator();                                   
 
 };

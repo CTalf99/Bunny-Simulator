@@ -12,13 +12,12 @@ private:
     int age;
     bool is_adult;
     bool infected_bunny;
-    bool is_dead = false;                       //not used but it is here at the moment for future features/improvements
     std::string names[10] = {"Thumper", "Oreo", "Snowball", "Coco", "Bugs", "Midnight", "Pepper", "Hopper", "Stompy", "Floppy"};
 
 public:
 
     Bunny(); //for initial five bunnies
-    explicit Bunny(const std::string &col);     //for when a bunny is born, takes mother's colour
+    explicit Bunny(const std::string &col);     //for when a bunny is born & takes mother's colour
     void display_bunny_values();
     void advance_age();
     void check_adult();
@@ -27,7 +26,4 @@ public:
     std::string get_name();
     char get_sex();
     std::string get_colour();
-    void death();
-
-    bool operator < (const std::shared_ptr<Bunny> b1) const;
 };

@@ -7,11 +7,6 @@
 #include <vector>
 #include <random>
 
-bool BunnyManager::compare_function(const std::shared_ptr<Bunny> &b1, const std::shared_ptr<Bunny> &b2) 
-{
-    return b1->get_age() > b2->get_age();
-}
-
 BunnyManager::BunnyManager()
 {
     for (int i = 0; i < 5; i++)
@@ -22,27 +17,43 @@ BunnyManager::BunnyManager()
     bunny_list.sort();
 }
 
+void BunnyManager::run()
+{
+    system("clear");
+    display_bunny_list();
+
+    do
+    {
+        food_shortage();
+        seperator();
+        breed();
+        seperator();
+        advance_time();
+        seperator();
+        sort_bunnies();
+        display_bunny_list();
+
+    } while(end_condition());
+
+    system("clear");
+    std::cout << "GAME OVER" << std::endl;
+    sleep(2);
+}
+
+bool BunnyManager::compare_function(const std::shared_ptr<Bunny> &b1, const std::shared_ptr<Bunny> &b2) 
+{
+    return b1->get_age() > b2->get_age();
+}
+
 void BunnyManager::bunny_attribute_header()
 {
     std::cout << std::left << std::setw(10) << "Name: " << std::left << std::setw(10) << "Sex: " << std::left << std::setw(10) << "Colour: " << std::left << std::setw(5) << "Age: " << std::left << std::setw(10) << "Infected?" << std::endl << std::endl;
 }
 
-std::list<std::shared_ptr<Bunny>> BunnyManager::get_list()
+void BunnyManager::display_bunny_list()
 {
-    return bunny_list;
-}
 
-void BunnyManager::display_screen()
-{
-    system("clear");
-    std::cout << "Bunnies born from the previouse round: " << std::string(2, '\n');
-    breed();
-    seperator();
-    std::cout << "Bunnies removed from the last round: " << std::string(2, '\n');
-    advance_time();
-    seperator();
-    sort_bunnies();
-    std::cout << "Updated bunny list: " << std::string(3, '\n');
+    std::cout << "List of bunnies: " << std::endl << std::endl;
     bunny_attribute_header();
 
     for (auto& it: bunny_list)
@@ -50,27 +61,12 @@ void BunnyManager::display_screen()
         it->display_bunny_values();
     }
     std::cout << std::endl;
-    //sleep(2);
-}
-
-//seperate display screen used at the start due to lack of breeding/dying before the list is displayed.
-
-void BunnyManager::display_start_screen(const std::string &opening)
-{
-    std::cout << opening << std::endl << std::endl;
-    bunny_attribute_header();
-    std::cout << std::endl;
-
-    for (auto& it: bunny_list)
-    {
-        it->display_bunny_values();
-    }
-    std::cout << std::endl;
-    sleep(4);
+    sleep(2);
 }
 
 void BunnyManager::advance_time()
 {
+    std::cout << "Bunnies removed from the last round: " << std::string(2, '\n');
     advance_all_age();
     std::list<std::shared_ptr<Bunny>>::const_iterator itr = bunny_list.begin();
     
@@ -119,6 +115,8 @@ bool BunnyManager::check_reproductive_male()
 
 void BunnyManager::breed()
 {
+    std::cout << "Bunnies born from the previouse round: " << std::string(2, '\n');
+
     if (check_reproductive_male())
     {
         std::list<std::shared_ptr<Bunny>>::const_iterator itr = bunny_list.begin();
@@ -144,6 +142,7 @@ void BunnyManager::sort_bunnies()
 
 void BunnyManager::food_shortage()
 {
+    system("clear");
     if(bunny_list.size() > 1000)
     {
         seperator();
@@ -179,6 +178,7 @@ void BunnyManager::food_shortage()
         sleep(3);
         deceased_names.clear();
     }
+    system("clear");
 }
 
 void BunnyManager::advance_all_age()
@@ -191,34 +191,9 @@ void BunnyManager::advance_all_age()
 
 }
 
-
 void BunnyManager::seperator()
 {
     std::cout << std::endl;
     std::cout << std::string(60, '-');
     std::cout << std::endl;
-}
-
-void BunnyManager::remove_half()
-{
-    seperator();
-    std::cout << "Half of bunnies removed" << std::endl;
-    sleep(3);
-    system("clear");
-    int a = bunny_list.size()/2;
-    
-    std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
-
-    while(itr != bunny_list.end())
-    {
-        std::random_device dev1;
-        std::mt19937 sexDev(dev1());
-        std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
-
-        if (distSex(sexDev) == 1) itr = bunny_list.erase(itr);
-        else ++itr;
-
-        if(bunny_list.size() == a) break;
-    }
-        
 }

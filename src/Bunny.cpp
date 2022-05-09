@@ -144,8 +144,3 @@ std::string Bunny::get_colour()
 {
     return colour;
 }
-
-void Bunny::death()
-{
-    is_dead = true;
-}
