@@ -24,7 +24,7 @@ BunnyManager::BunnyManager()
 
 void BunnyManager::bunny_attribute_header()
 {
-    std::cout << std::left << std::setw(10) << "Name: " << std::left << std::setw(10) << "Sex: " << std::left << std::setw(10) << "Colour: " << std::left << std::setw(5) << "Age: " << std::left << std::setw(10) << "Vampire?" << std::endl << std::endl;
+    std::cout << std::left << std::setw(10) << "Name: " << std::left << std::setw(10) << "Sex: " << std::left << std::setw(10) << "Colour: " << std::left << std::setw(5) << "Age: " << std::left << std::setw(10) << "Infected?" << std::endl << std::endl;
 }
 
 std::list<std::shared_ptr<Bunny>> BunnyManager::get_list()
@@ -39,7 +39,7 @@ void BunnyManager::display_screen()
     std::cout << "Bunnies born from the previouse round: " << std::string(2, '\n');
     breed();
     seperator();
-    std::cout << "Bunnies who sadly passed away from the last round: " << std::string(2, '\n');
+    std::cout << "Bunnies removed from the last round: " << std::string(2, '\n');
     advance_time();
     seperator();
     sort_bunnies();
@@ -77,15 +77,15 @@ void BunnyManager::advance_time()
     {
         while(itr != bunny_list.end())
         {
-            if ((*itr)->get_age() > 10 && (*itr)->is_radioactive() == false)
+            if ((*itr)->get_age() > 10 && (*itr)->is_infected() == false)
             {
-                std::cout << "Bunny " << (*itr) -> get_name() << " has died :(" << std::endl;
+                std::cout << "Bunny " << (*itr) -> get_name() << " has died" << std::endl;
                 sleep(1);
                 itr = bunny_list.erase(itr);
             }
-            else if ((*itr)->get_age() > 50 && (*itr)->is_radioactive() == true)
+            else if ((*itr)->get_age() > 50 && (*itr)->is_infected() == true)
             {
-                std::cout << "Radioactive Bunny " << (*itr) -> get_name() << " has died :(" << std::endl;
+                std::cout << "Infected Bunny " << (*itr) -> get_name() << " has died" << std::endl;
                 sleep(1);
                 itr = bunny_list.erase(itr);
             }
@@ -107,7 +107,7 @@ bool BunnyManager::check_reproductive_male()
     bool* reproductive = &repro;
     for (auto& it: bunny_list)
     {
-        if (it->get_sex() == 'M' && !(it->is_radioactive()))
+        if (it->get_sex() == 'M' && !(it->is_infected()))
         {
         *reproductive = true;
         break;
@@ -123,11 +123,11 @@ void BunnyManager::breed()
         std::list<std::shared_ptr<Bunny>>::const_iterator itr = bunny_list.begin();
         while(itr != bunny_list.end())
         {
-            if (((*itr)->get_sex() == 'F') && !((*itr)->is_radioactive()))
+            if (((*itr)->get_sex() == 'F') && !((*itr)->is_infected()))
             {
                 std::shared_ptr<Bunny> bunnyChild = std::make_shared<Bunny>((*itr)->get_colour());
                 bunny_list.push_front(bunnyChild);
-                std::cout << bunnyChild->get_name() << " was born! from "  << (*itr)->get_name() << std::endl;
+                std::cout << bunnyChild->get_name() << " was born!" << std::endl;
                 sleep(1);
             }
             ++itr;

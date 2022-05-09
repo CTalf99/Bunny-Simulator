@@ -11,7 +11,7 @@ private:
     std::string colour;
     int age;
     bool is_adult;
-    bool radioactive_mutant_vampire_bunny;
+    bool infected_bunny;
     bool is_dead = false;
 
 public:
@@ -22,7 +22,7 @@ public:
     void advance_age();
     void check_adult();
     int get_age();
-    bool is_radioactive();
+    bool is_infected();
     std::string get_name();
     char get_sex();
     std::string get_colour();

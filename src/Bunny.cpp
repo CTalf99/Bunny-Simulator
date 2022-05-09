@@ -48,11 +48,11 @@ Bunny::Bunny()
 
     //random choose radioactive vampire rabbit
     std::random_device dev4;
-    std::mt19937 vampireDev(dev4());
-    std::uniform_int_distribution<std::mt19937::result_type> distVamp(1, 100);
+    std::mt19937 infectedDev(dev4());
+    std::uniform_int_distribution<std::mt19937::result_type> distInfected(1, 100);
 
-    if (distVamp(vampireDev) <= 25) radioactive_mutant_vampire_bunny = true;
-    else radioactive_mutant_vampire_bunny = false;
+    if (distInfected(infectedDev) <= 25) infected_bunny = true;
+    else infected_bunny = false;
 
     //random choose name
     std::random_device dev5;
@@ -124,8 +124,8 @@ Bunny::Bunny(const std::string &col)
     std::mt19937 vampireDev(dev4());
     std::uniform_int_distribution<std::mt19937::result_type> distVamp(1, 100);
 
-    if (distVamp(vampireDev) <= 25) radioactive_mutant_vampire_bunny = true;
-    else radioactive_mutant_vampire_bunny = false;  
+    if (distVamp(vampireDev) <= 25) infected_bunny = true;
+    else infected_bunny = false;  
 
     //random choose name
     std::random_device dev5;
@@ -183,7 +183,7 @@ Bunny::Bunny(const std::string &col)
 void Bunny::display_bunny_values()
 {
     char vampire;
-    if (radioactive_mutant_vampire_bunny == true) vampire = 'Y';
+    if (infected_bunny == true) vampire = 'Y';
     else vampire = ' ';
     std::cout << std::left << std::setw(10) << name << std::left << std::setw(10) << sex << std::left << std::setw(10) << colour << std::left << std::setw(5) << age << std::left << std::setw(10) << vampire << std::endl;
 }
@@ -207,9 +207,9 @@ int Bunny::get_age()
     return age;
 }
 
-bool Bunny::is_radioactive()
+bool Bunny::is_infected()
 {
-    return radioactive_mutant_vampire_bunny; 
+    return infected_bunny; 
 }
 
 std::string Bunny::get_name()
