@@ -10,12 +10,11 @@ private:
     std::list<std::shared_ptr<Bunny>> bunny_list;
 
 public:
-    //std::list<std::shared_ptr<Bunny>> bunny_list;
 
     BunnyManager();
     void bunny_attribute_header();
-    std::list<std::shared_ptr<Bunny>> get_list();  
-    void display_screen();
+    std::list<std::shared_ptr<Bunny>> get_list(); 
+    void display_screen();                                  //display_screen uses other functions defined here to condense the code in main.cpp 
     void display_start_screen(const std::string &opening);
     void advance_time();
     bool end_condition();
@@ -26,7 +25,7 @@ public:
     void food_shortage();
     void remove_bunny(const std::shared_ptr<Bunny> b);
     void advance_all_age();
-    void seperator();
+    void seperator();                                       //formatting function
     void remove_half();
 
 };

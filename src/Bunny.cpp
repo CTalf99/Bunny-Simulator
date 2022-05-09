@@ -135,13 +135,6 @@ std::string Bunny::get_name()
     return name;
 }
 
-//operator override for list sorting
-/*bool Bunny::operator < (const std::shared_ptr<Bunny> b1) const
-{
-    std::cout << "Operator Working" << std::endl;
-    return age < b1->age;
-}*/
-
 char Bunny::get_sex()
 {
     return sex;
