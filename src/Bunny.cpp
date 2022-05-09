@@ -57,50 +57,9 @@ Bunny::Bunny()
     //random choose name
     std::random_device dev5;
     std::mt19937 nameDev(dev5());
-    std::uniform_int_distribution<std::mt19937::result_type> distName(1, 10);
+    std::uniform_int_distribution<std::mt19937::result_type> distName(0, 9);
 
-    switch(distName(nameDev))
-    {
-        case 1:
-        name = "Thumper";
-        break;
-
-        case 2:
-        name = "Oreo";
-        break;
-        
-        case 3:
-        name = "Snowball";
-        break;
-
-        case 4:
-        name = "Coco";
-        break;
-
-        case 5:
-        name = "Bugs";
-        break;
-
-        case 6:
-        name = "Midnight";
-        break;
-
-        case 7:
-        name = "Roger";
-        break;
-
-        case 8:
-        name = "Hopper";
-        break;
-
-        case 9:
-        name = "Stompy";
-        break;
-
-        case 10:
-        name = "Floppy";
-        break;
-    }
+    name = names[distName(nameDev)];
 
     if (age >= 2) {
         is_adult = true;
@@ -130,50 +89,9 @@ Bunny::Bunny(const std::string &col)
     //random choose name
     std::random_device dev5;
     std::mt19937 nameDev(dev5());
-    std::uniform_int_distribution<std::mt19937::result_type> distName(1, 10);
+    std::uniform_int_distribution<std::mt19937::result_type> distName(0, 9);
 
-    switch(distName(nameDev))
-    {
-        case 1:
-        name = "Thumper";
-        break;
-
-        case 2:
-        name = "Oreo";
-        break;
-        
-        case 3:
-        name = "Snowball";
-        break;
-
-        case 4:
-        name = "Coco";
-        break;
-
-        case 5:
-        name = "Bugs";
-        break;
-
-        case 6:
-        name = "Midnight";
-        break;
-
-        case 7:
-        name = "Roger";
-        break;
-
-        case 8:
-        name = "Hopper";
-        break;
-
-        case 9:
-        name = "Stompy";
-        break;
-
-        case 10:
-        name = "Floppy";
-        break;
-    }
+    name = names[distName(nameDev)];
 
     age = -1;
     colour = col;

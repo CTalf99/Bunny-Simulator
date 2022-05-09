@@ -13,6 +13,7 @@ private:
     bool is_adult;
     bool infected_bunny;
     bool is_dead = false;
+    std::string names[10] = {"Thumper", "Oreo", "Snowball", "Coco", "Bugs", "Midnight", "Pepper", "Hopper", "Stompy", "Floppy"};
 
 public:
 
