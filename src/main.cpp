@@ -10,13 +10,17 @@
 // CIN-THREAD
 
 BunnyManager bunnies;
+bool userInput;
 
 void run()
 {
     do
     {
+        userInput = false;
         bunnies.food_shortage();
         bunnies.display_screen();
+        userInput = true;
+        sleep(2);
 
     } while (bunnies.end_condition());
 }
@@ -28,22 +32,22 @@ int main ()
     bunnies.sort_bunnies();
     bunnies.display_start_screen("Bunny simulation has begun");
 
-    do { 
     std::thread prg(run);
 
-    char test;
-    std::cin >> test;
     while (bunnies.end_condition())
     {
-    if (test == 'k' || test == 'K')
-    {
-        bunnies.remove_half();
-        std::cin.clear();
-    }
+        {
+            char test;
+            std::cin >> test;
+
+            if ((test == 'k' || test == 'K') && userInput)
+            {
+                bunnies.remove_half();
+                std::cin.clear();
+            }
+        }
     }
     prg.join();
-
-    } while (bunnies.end_condition());
 
     system("clear");
     std::cout << "GAME OVER" << std::endl;

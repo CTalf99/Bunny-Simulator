@@ -32,6 +32,7 @@ std::list<std::shared_ptr<Bunny>> BunnyManager::get_list()
     return bunny_list;
 }
 
+//the display screen function includes breed and advance_time functions to reduce the number of function calls in main.
 
 void BunnyManager::display_screen()
 {
@@ -51,8 +52,10 @@ void BunnyManager::display_screen()
         it->display_bunny_values();
     }
     std::cout << std::endl;
-    sleep(2);
+    //sleep(2);
 }
+
+//seperate display screen used at the start due to lack of breeding/dying before the list is displayed.
 
 void BunnyManager::display_start_screen(const std::string &opening)
 {
@@ -67,6 +70,8 @@ void BunnyManager::display_start_screen(const std::string &opening)
     std::cout << std::endl;
     sleep(4);
 }
+
+//advance_time increments age of all rabbits, checks if age is aove a specified age of death, removes with a death message.
 
 void BunnyManager::advance_time()
 {
@@ -177,6 +182,8 @@ void BunnyManager::advance_all_age()
     }
 
 }
+
+//formatting 
 
 void BunnyManager::seperator()
 {
