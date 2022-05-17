@@ -24,7 +24,7 @@ void BunnyManager::run()
 
     do
     {
-        food_shortage();
+        kill_half();
         seperator();
         breed();
         seperator();
@@ -140,43 +140,25 @@ void BunnyManager::sort_bunnies()
     bunny_list.sort(compare_function);
 }
 
-void BunnyManager::food_shortage()
+//Simulates a food shortage by randomly removing half the bunnies from the list when the population exceeds 1000. 
+void BunnyManager::kill_half()
 {
     system("clear");
-    if(bunny_list.size() > 1000)
+    if(bunny_list.size() > 20)
     {
         seperator();
-        std::cout << "Bunny famine!" << std::endl;
+        std::cout << "Famine! Half of the bunnies die of starvation." << std::endl;
         sleep(3);
         system("clear");
-        int a = bunny_list.size()/2;
-        
-        std::list<std::shared_ptr<Bunny>>::iterator itr = bunny_list.begin();
-        std::vector<std::string> deceased_names;
 
-        while(itr != bunny_list.end())
-        {
-            std::random_device dev1;
-            std::mt19937 sexDev(dev1());
-            std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);  
+        std::vector<std::shared_ptr<Bunny>> temp(bunny_list.begin(), bunny_list.end());
+        std::random_shuffle(temp.begin(), temp.end());
 
-            if (distSex(sexDev) == 1) 
-            {
-                deceased_names.push_back((*itr)->get_name());
-                itr = bunny_list.erase(itr);
-            }
-            else ++itr;
+        // copy the (shuffled) vector back into the list
+        std::copy(temp.begin(), temp.end(), bunny_list.begin());
 
-            if(bunny_list.size() == a) break;
-        }
-        
-        std::cout << "Bunnies that died during food shortage: " << std::endl;
-        for (int i = 0; i < deceased_names.size(); i++)
-        {
-            std::cout << deceased_names[i] << std::endl;
-        }
-        sleep(3);
-        deceased_names.clear();
+        bunny_list.resize((bunny_list.size() + 1)/2);
+
     }
     system("clear");
 }

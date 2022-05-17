@@ -21,7 +21,7 @@ public:
     bool check_reproductive_male();
     void breed();
     static bool compare_function(const std::shared_ptr<Bunny> &b1, const std::shared_ptr<Bunny> &b2);       //for sorting list by object age;
-    void food_shortage();
+    void kill_half();
     void remove_bunny(const std::shared_ptr<Bunny> b);
     void advance_all_age();
     void seperator();                                   
