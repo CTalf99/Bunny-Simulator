@@ -17,7 +17,7 @@ project(Bunnies VERSION 1.0)
 #file(GLOB_RECURSE SRC_FILES src/*.cpp )
 
 #this is a variable which lists all the cpp files you will need to link
-set(SRC_FILES src/BunnyManager.cpp src/Bunny.cpp src/generator)
+set(SRC_FILES src/BunnyManager.cpp src/Bunny.cpp src/generator.cpp)
 
 
 #The executable name and where the main function is
