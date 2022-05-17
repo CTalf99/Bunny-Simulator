@@ -12,7 +12,7 @@ private:
     int age;
     bool is_adult;
     bool infected_bunny;
-    std::string names[10] = {"Thumper", "Oreo", "Snowball", "Coco", "Bugs", "Midnight", "Pepper", "Hopper", "Stompy", "Floppy"};
+    //std::string names[10] = {"Thumper", "Oreo", "Snowball", "Coco", "Bugs", "Midnight", "Pepper", "Hopper", "Stompy", "Floppy"};
 
 public:
 

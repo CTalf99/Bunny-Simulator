@@ -1,66 +1,13 @@
 #include "../include/Bunny.h"
+#include "../include/generator.h"
 #include <random>
 #include <string>
 #include <iostream>
 #include <iomanip>
 #include <memory>
 
-Bunny::Bunny()
+Bunny::Bunny() : sex(generator::rand_sex()), colour(generator::rand_colour()), age(generator::rand_age()), name(generator::rand_name()), infected_bunny(generator::rand_infected())
 {
-    //random choose sex
-    std::random_device dev1;
-    std::mt19937 sexDev(dev1());
-    std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);
-
-    if (distSex(sexDev) == 1) sex = 'f';
-    else sex = 'm';
-
-    //random choose colour
-    std::random_device dev2;
-    std::mt19937 colourDev(dev2());
-    std::uniform_int_distribution<std::mt19937::result_type> distColour(1, 4);
-
-    switch(distColour(colourDev))
-    {
-    case 1:
-    colour = "white";
-    break;
-
-    case 2:
-    colour = "brown";
-    break;
-
-    case 3:
-    colour = "black";
-    break;
-
-    case 4:
-    colour = "spotted";
-    break;    
-    }
-
-    //random choose age
-    std::random_device dev3;
-    std::mt19937 ageDev(dev3());
-    std::uniform_int_distribution<std::mt19937::result_type> distAge(0, 10);
-
-    age = distAge(ageDev);
-
-    //random choose radioactive vampire rabbit
-    std::random_device dev4;
-    std::mt19937 infectedDev(dev4());
-    std::uniform_int_distribution<std::mt19937::result_type> distInfected(1, 100);
-
-    if (distInfected(infectedDev) <= 2) infected_bunny = true;
-    else infected_bunny = false;
-
-    //random choose name
-    std::random_device dev5;
-    std::mt19937 nameDev(dev5());
-    std::uniform_int_distribution<std::mt19937::result_type> distName(0, 9);
-
-    name = names[distName(nameDev)];
-
     if (age >= 2) {
         is_adult = true;
         sex = std::toupper(sex);
@@ -68,35 +15,7 @@ Bunny::Bunny()
     else is_adult = false;
 }
 
-Bunny::Bunny(const std::string &col)
-{
-    //random choose sex
-    std::random_device dev1;
-    std::mt19937 sexDev(dev1());
-    std::uniform_int_distribution<std::mt19937::result_type> distSex(1, 2);
-
-    if (distSex(sexDev) == 1) sex = 'f';
-    else sex = 'm';
-
-    //random choose radioactive vampire rabbit
-    std::random_device dev4;
-    std::mt19937 vampireDev(dev4());
-    std::uniform_int_distribution<std::mt19937::result_type> distVamp(1, 100);
-
-    if (distVamp(vampireDev) <= 25) infected_bunny = true;
-    else infected_bunny = false;  
-
-    //random choose name
-    std::random_device dev5;
-    std::mt19937 nameDev(dev5());
-    std::uniform_int_distribution<std::mt19937::result_type> distName(0, 9);
-
-    name = names[distName(nameDev)];
-
-    age = -1;
-    colour = col;
-    is_adult = false;
-}
+Bunny::Bunny(const std::string &col) : sex(generator::rand_sex()), colour(col), age(-1), name(generator::rand_name()), infected_bunny(generator::rand_infected()), is_adult(false) {}
 
 void Bunny::display_bunny_values()
 {

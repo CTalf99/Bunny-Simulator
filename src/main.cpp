@@ -1,5 +1,6 @@
 #include "../include/Bunny.h"
 #include "../include/BunnyManager.h"
+#include"../include/generator.h"
 #include <unistd.h>
 #include <iostream>
 #include <memory>

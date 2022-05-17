@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <random>
+#include <algorithm>
 
 BunnyManager::BunnyManager()
 {
@@ -66,7 +67,7 @@ void BunnyManager::display_bunny_list()
 
 void BunnyManager::advance_time()
 {
-    std::cout << "Bunnies removed from the last round: " << std::string(2, '\n');
+    std::cout << "Bunnies who died of old age: " << std::string(2, '\n');
     advance_all_age();
     std::list<std::shared_ptr<Bunny>>::const_iterator itr = bunny_list.begin();
     
@@ -144,7 +145,7 @@ void BunnyManager::sort_bunnies()
 void BunnyManager::kill_half()
 {
     system("clear");
-    if(bunny_list.size() > 20)
+    if(bunny_list.size() > 1000)
     {
         seperator();
         std::cout << "Famine! Half of the bunnies die of starvation." << std::endl;
